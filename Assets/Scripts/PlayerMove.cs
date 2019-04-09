@@ -6,8 +6,9 @@ using System;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float moveSpeed = 3f;
-    public float turnSpeed = 500f;
+    public GameObject Missile;
+    public float moveSpeed = 300f;
+    public float turnSpeed = 5000f;
 
     // Star is called before the first frame update
     void Start()
@@ -23,19 +24,19 @@ public class PlayerMove : MonoBehaviour
     {   //move tasten
         if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(1f * moveSpeed * -Time.deltaTime, 0f, 0f);
+            transform.Translate(5f * moveSpeed * -Time.deltaTime, 0f, 0f);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(1f * moveSpeed * Time.deltaTime, 0f, 0f);
+            transform.Translate(5f * moveSpeed * Time.deltaTime, 0f, 0f);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(0f, 1f * moveSpeed * Time.deltaTime, 0f);
+            transform.Translate(0f, 5f * moveSpeed * Time.deltaTime, 0f);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(0f, 1f * moveSpeed * -Time.deltaTime, 0f);
+            transform.Translate(0f, 5f * moveSpeed * -Time.deltaTime, 0f);
         }
 
         //Rotate tasten
@@ -47,6 +48,13 @@ public class PlayerMove : MonoBehaviour
         {
             transform.Rotate(Vector3.back, turnSpeed * Time.deltaTime);
         }
+        //Geschoss
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            
+            Vector3 shootPoint = transform.position;
+           /*GameObject missile1 = */ Instantiate(Missile, shootPoint, Quaternion.identity);
 
+        }
     }
 }
