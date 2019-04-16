@@ -9,14 +9,17 @@ public class PlayerMove : MonoBehaviour
     public GameObject Missile;
     public float moveSpeed = 300f;
     public float turnSpeed = 5000f;
+    public Hitpoints hp;
+    
 
     // Star is called before the first frame update
     void Start()
-    {   
-       /* transform.position = new Vector3(304,6,220);
-        print(transform.position.x);
+    {
 
-        UnityEngine.Debug.Log("Kek");*/
+     
+    /* transform.position = new Vector3(304,6,220);
+     print(transform.position.x);
+     UnityEngine.Debug.Log("Kek");*/
     }
 
     // Update is called once per frame
@@ -56,5 +59,15 @@ public class PlayerMove : MonoBehaviour
            /*GameObject missile1 = */ Instantiate(Missile, shootPoint, Quaternion.identity);
 
         }
+        
+        
+        
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        Debug.Log("CollisionEnter");
+            hp.damageTaken();
+        
     }
 }
