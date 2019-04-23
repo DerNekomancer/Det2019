@@ -16,15 +16,15 @@ public class Hitpoints : MonoBehaviour
     void Start()
     {
     
-        Debug.Log(count.ToString());
+        //Debug.Log(count.ToString());
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(count.ToString());
-        Debug.Log("damageTaken");
+        //Debug.Log(count.ToString());
+        //Debug.Log("damageTaken");
         if (count == 2)
         {
             hearts[2].color = Color.gray;
@@ -44,8 +44,8 @@ public class Hitpoints : MonoBehaviour
     }
     public void damageTaken()
     {
-        Debug.Log("Leben: " + count.ToString());
-        count--;
-        Debug.Log("Leben: " + count.ToString());
+        //Debug.Log("Leben: " + count.ToString());
+        //count--;
+        //Debug.Log("Leben: " + count.ToString());
     }
 }

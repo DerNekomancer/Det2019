@@ -3,14 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
 public class PlayerMove : MonoBehaviour
 {
     public GameObject Missile;
     public float moveSpeed = 300f;
     public float turnSpeed = 5000f;
     public Hitpoints hp;
-    
+    int hits = 3;
+    int munition = 10;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //ContactPoint contact = collision.contacts[0];
+        if (collision.gameObject.tag == "Monster")
+        {
+            Debug.Log(collision.gameObject.name + "player got hit");
+            //transform.position = new Vector3(290, 2.5f, 200);
+            hits--;
+            Debug.Log("player hp:"+ hits);
+            if (hits <= 0)
+            {
+                Destroy(gameObject);
+                //Destroy(EnemyCube);
+            }
+        }
+    }
 
     // Star is called before the first frame update
     void Start()
@@ -52,22 +69,15 @@ public class PlayerMove : MonoBehaviour
             transform.Rotate(Vector3.back, turnSpeed * Time.deltaTime);
         }
         //Geschoss
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && munition > 0)
         {
-            
+            munition--;
             Vector3 shootPoint = transform.position;
            /*GameObject missile1 = */ Instantiate(Missile, shootPoint, Quaternion.identity);
 
         }
         
         
-        
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        Debug.Log("CollisionEnter");
-            hp.damageTaken();
         
     }
 }
