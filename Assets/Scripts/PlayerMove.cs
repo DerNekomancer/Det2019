@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
     public GameObject Missile;
     public float moveSpeed = 300f;
     public float turnSpeed = 5000f;
-    public Hitpoints hp;
-    int hits = 3;
-    int munition = 10;
+    //public Hitpoints hp;
+    int hits = 4;
+    int munition = 30;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -42,7 +43,11 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   //move tasten
-        if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
+        if (hits <= 1)
+        {
+            SceneManager.LoadScene(3);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(5f * moveSpeed * -Time.deltaTime, 0f, 0f);
         }

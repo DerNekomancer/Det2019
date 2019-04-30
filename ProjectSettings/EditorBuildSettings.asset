@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TopDownSpaceBomber.unity
     guid: c21b49eaf5857514fa7fbf6cc30909f1
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 9f78ef2ee0cad9d4697e40d3de943148
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: a90f783c64597ed4ebc1d37935c3cba8
   m_configObjects: {}

@@ -6,7 +6,7 @@ public class Enemy1hit : MonoBehaviour
 {
     public Transform Player;
     // public Transform Bombs;
-    int moveSpeed = 2;
+    float moveSpeed = 1.5f;
     int maxDist = 50;
     int minDist = 0;
     int hits = 1;
